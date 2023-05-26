@@ -11,12 +11,12 @@ public class Calculator {
 
 
         protected Formula() {}
-        protected Double a, b, result = null;
+        protected Double a, b, result;
         public Formula addOperand(double operand) {
             if (a == null) {
                 a = operand;
             }
-            if (b == null) {
+            else if (b == null) {
                 b = operand;
             } else {
                 throw new IllegalStateException("Formula is full of operands");

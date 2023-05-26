@@ -6,24 +6,28 @@ public class IntsCalculator implements Ints {
     }
     @Override
     public int sum(int arg0, int arg1) {
-        target.newFormula().addOperand(arg0);
-        target.newFormula().addOperand(arg1);
-      target.newFormula().calculate(Calculator.Operation.SUM);
+        Calculator.Formula a =  target.newFormula();
+        a.addOperand(arg1);
+        a.addOperand(arg0);
+        a.calculate(Calculator.Operation.SUM);
+        return a.result.intValue();
     }
 
     @Override
     public int mult(int arg0, int arg1) {
-        target.newFormula().addOperand(arg0);
-        target.newFormula().addOperand(arg1);
-        target.newFormula().calculate(Calculator.Operation.MULT);
-        return target.newFormula().result.intValue();
+     Calculator.Formula a =  target.newFormula();
+         a.addOperand(arg1);
+         a.addOperand(arg0);
+        a.calculate(Calculator.Operation.MULT);
+        return a.result.intValue();
     }
 
     @Override
     public int pow(int a, int b) {
-        target.newFormula().addOperand(a);
-        target.newFormula().addOperand(b);
-        target.newFormula().calculate(Calculator.Operation.POW);
-        return target.newFormula().result.intValue();
+        Calculator.Formula $ =  target.newFormula();
+        $.addOperand(a);
+        $.addOperand(b);
+        $.calculate(Calculator.Operation.POW);
+        return $.result.intValue();
     }
 }
